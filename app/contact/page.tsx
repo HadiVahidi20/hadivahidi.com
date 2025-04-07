@@ -35,25 +35,21 @@ export default function ContactPage() {
     setError(null);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send email using EmailJS
+      const { sendEmail } = await import('@/lib/emailjs');
+      const result = await sendEmail(data);
       
-      // Here you would typically send the form data to your backend or EmailJS
-      // For example:
-      // await emailjs.sendForm(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   formRef.current,
-      //   'YOUR_USER_ID'
-      // );
-      
-      setIsSuccess(true);
-      reset();
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
+      if (result.success) {
+        setIsSuccess(true);
+        reset();
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 5000);
+      } else {
+        setError(result.error || 'An error occurred while sending your message. Please try again.');
+      }
     } catch (err) {
       setError('An error occurred while sending your message. Please try again.');
       console.error(err);
