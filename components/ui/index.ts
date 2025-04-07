@@ -1,1 +1,1 @@
-// Placeholder content for components/ui/index.ts
+export * from './Button';
