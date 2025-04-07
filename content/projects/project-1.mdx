@@ -1,1 +1,113 @@
-// Placeholder content for content/projects/project-1.mdx
+---
+title: "Refugee Resource Allocation Platform"
+description: "A responsive web application that helps coordinate and distribute resources for refugee assistance programs."
+coverImage: "/images/projects/refugee-platform.jpg"
+tags: ["React", "Firebase", "Tailwind CSS", "Humanitarian"]
+role: "Lead Developer"
+techStack: ["React", "Firebase", "Tailwind CSS", "React Query", "Mapbox API"]
+githubLink: "https://github.com/HadiVahidi20/refugee-resource-platform"
+demoLink: "https://refugee-resource-demo.vercel.app"
+featured: true
+---
+
+# Refugee Resource Allocation Platform
+
+## Project Overview
+
+The Refugee Resource Allocation Platform is a web-based solution designed to streamline the coordination and distribution of essential resources for refugee assistance programs. Initially developed for a humanitarian organization working with Afghan refugees, this platform has helped coordinate resources for over 1,000 individuals.
+
+## The Challenge
+
+Humanitarian organizations often struggle with efficiently allocating limited resources across multiple locations. The existing solutions were either paper-based or relied on complex spreadsheets that were difficult to update in real-time and access from the field. 
+
+Key challenges included:
+
+- Real-time tracking of available resources across multiple locations
+- Efficient matching of resources to specific needs
+- Coordination between field workers and headquarters
+- Data collection and reporting for donors and stakeholders
+- Accessibility from various devices including low-end smartphones
+
+## The Solution
+
+I developed a responsive, web-based platform that addresses these challenges through:
+
+### Resource Management System
+
+- Inventory tracking across multiple locations
+- Resource categorization and priority assignment
+- Expiration date tracking and automatic alerts
+- QR code integration for quick resource check-in/check-out
+
+### Need Assessment Module
+
+- Standardized needs assessment forms
+- Priority scoring algorithm based on vulnerability factors
+- Automated matching of available resources to identified needs
+- Case history and follow-up tracking
+
+### Field Coordination Tools
+
+- Mobile-optimized interface for field workers
+- Offline capability with synchronization when connectivity returns
+- GPS integration for resource location mapping
+- Real-time notifications for urgent needs
+
+### Reporting & Analytics
+
+- Customizable dashboards for different stakeholder groups
+- Automated donor reports generation
+- Impact visualization through charts and maps
+- Data export in multiple formats
+
+## Technical Implementation
+
+### Architecture
+
+The platform uses a modern, scalable architecture:
+
+- **Frontend**: React with Tailwind CSS for a responsive, mobile-first interface
+- **Backend**: Firebase for real-time database, authentication, and cloud functions
+- **State Management**: React Query for server state management
+- **Mapping**: Mapbox API for geospatial visualization
+- **Offline Support**: Service workers and IndexedDB for offline functionality
+
+### Key Technical Features
+
+- **Performance Optimization**: Code splitting, lazy loading, and image optimization ensure the application runs smoothly even on low-end devices with poor connectivity
+- **Security**: Role-based access control, data encryption, and compliance with humanitarian data protection standards
+- **Internationalization**: Support for multiple languages including Dari and Pashto
+- **Accessibility**: WCAG 2.1 AA compliant, ensuring usability for users with disabilities
+
+## Impact & Results
+
+The platform has significantly improved resource allocation efficiency and impact:
+
+- 40% reduction in resource allocation time
+- 30% improvement in appropriate resource matching
+- 25% decrease in unused or expired resources
+- 1,000+ refugees served through the platform
+- 50+ field workers actively using the system
+
+## Lessons Learned
+
+This project reinforced several important principles:
+
+1. **User-Centered Design**: Working directly with field workers throughout the development process ensured the platform actually solved their problems rather than creating new ones.
+
+2. **Progressive Enhancement**: Building with a "minimum viable experience" first ensured that even users with basic devices could access critical functionality.
+
+3. **Data Privacy**: Implementing robust security measures from the beginning protected vulnerable individuals' sensitive information.
+
+4. **Adaptability**: Creating flexible, modular components allowed the platform to evolve as requirements changed and new needs emerged.
+
+## Future Development
+
+The platform continues to evolve with planned enhancements including:
+
+- Integration with additional external aid databases
+- Machine learning for improved resource matching
+- Enhanced analytics for program effectiveness measurement
+- Expansion to support additional humanitarian contexts
+
+This project exemplifies my commitment to creating technology that makes a meaningful difference in people's lives. By combining modern web development techniques with a deep understanding of humanitarian needs, I was able to create a solution that helps deliver critical aid more effectively to those who need it most.
