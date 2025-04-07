@@ -1,1 +1,68 @@
-// Placeholder content for styles/mdx.css
+/* MDX Content Styles */
+.mdx-content h1 {
+  @apply text-3xl font-bold mt-8 mb-4;
+}
+
+.mdx-content h2 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.mdx-content h3 {
+  @apply text-xl font-semibold mt-6 mb-3;
+}
+
+.mdx-content h4 {
+  @apply text-lg font-semibold mt-4 mb-2;
+}
+
+.mdx-content p {
+  @apply my-4 leading-relaxed;
+}
+
+.mdx-content a {
+  @apply text-primary hover:text-secondary transition-colors;
+}
+
+.mdx-content ul {
+  @apply my-4 ml-6 list-disc;
+}
+
+.mdx-content ol {
+  @apply my-4 ml-6 list-decimal;
+}
+
+.mdx-content li {
+  @apply my-1;
+}
+
+.mdx-content code {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded-md text-sm;
+}
+
+.mdx-content pre {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-xl p-4 my-6 overflow-x-auto;
+}
+
+.mdx-content blockquote {
+  @apply border-l-4 border-primary pl-4 my-4 italic;
+}
+
+.mdx-content img {
+  @apply rounded-xl my-6;
+}
+
+.mdx-content table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700 my-6;
+}
+
+.mdx-content th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+}
+
+.mdx-content td {
+  @apply px-6 py-4 whitespace-nowrap text-sm;
+}
+
+.mdx-content hr {
+  @apply my-8 border-gray-200 dark:border-gray-800;
+}
