@@ -1,0 +1,1 @@
+// Placeholder content for app/blog/[slug]/page.tsx

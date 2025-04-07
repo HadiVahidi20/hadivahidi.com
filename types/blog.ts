@@ -1,0 +1,1 @@
+// Placeholder content for types/blog.ts

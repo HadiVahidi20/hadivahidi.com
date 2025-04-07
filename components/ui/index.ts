@@ -1,0 +1,1 @@
+// Placeholder content for components/ui/index.ts

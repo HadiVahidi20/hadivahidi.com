@@ -1,0 +1,1 @@
+// Placeholder content for components/layout/Footer.tsx
