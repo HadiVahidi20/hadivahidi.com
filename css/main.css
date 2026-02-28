@@ -1,0 +1,36 @@
+/* /css/main.css */
+
+/* Import variables first */
+@import 'variables.css';
+
+/* Import base styles */
+@import 'base.css';
+
+/* Import utility styles */
+@import 'utils/animations.css';
+@import 'utils/responsive.css';
+@import 'utils/responsiveSections.css';
+
+/* Import components */
+@import 'components/cursor.css';
+@import 'components/theme-toggle.css';
+@import 'components/navigation.css';
+@import 'components/progress-bar.css';
+@import 'components/buttons.css';
+@import 'components/timeline.css';
+@import 'components/project-nodes.css';
+@import 'components/project-detail.css'; /* Added new component */
+@import 'components/database-integration.css';
+@import 'components/swipe-indicator.css';
+@import 'components/articles.css';
+
+
+/* Import sections */
+@import 'sections/header.css';
+@import 'sections/intro.css';
+@import 'sections/skills.css';
+@import 'sections/work.css';
+@import 'sections/experience.css';
+@import 'sections/contact.css';
+@import 'sections/footer.css';
+

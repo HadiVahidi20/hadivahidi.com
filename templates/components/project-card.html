@@ -1,0 +1,123 @@
+<!-- /templates/components/project-card.html -->
+<!-- 
+  Project Card Component
+  
+  Usage:
+  This component accepts the following PHP variables:
+  - $projectId: A unique identifier for the project
+  - $projectTitle: The title of the project
+  - $projectImage: Path to the project image
+  - $projectDescription: Short description of the project
+  - $projectTags: Array of tags for the project
+  - $projectLink: Link to the live project (optional)
+  - $projectGithub: Link to the GitHub repository (optional)
+  - $nodeSize: Size class for the node ('size-lg', 'size-md', or 'size-sm')
+  - $nodePosition: CSS position of the node (e.g., "top: 40%; left: 30%;")
+  - $circleText: Text that appears in the circular ring
+  
+  Example PHP implementation:
+  include_once('templates/components/project-card.html', [
+    'projectId' => 1,
+    'projectTitle' => 'E-commerce Platform',
+    'projectImage' => 'assets/images/project-1.jpg',
+    'projectDescription' => 'A modern e-commerce platform with responsive design...',
+    'projectTags' => ['React', 'JavaScript', 'Responsive'],
+    'projectLink' => 'https://example.com',
+    'projectGithub' => 'https://github.com/username/project',
+    'nodeSize' => 'size-lg',
+    'nodePosition' => 'top: 40%; left: 30%;',
+    'circleText' => 'E-commerce Platform • Modern Design • Responsive •'
+  ]);
+-->
+
+<!-- Project Node -->
+<div class="project-node <?php echo $nodeSize ?? 'size-md'; ?>" style="<?php echo $nodePosition ?? ''; ?>" data-project="<?php echo $projectId; ?>">
+    <div class="project-circle">
+        <div class="project-inner">
+            <img src="<?php echo $projectImage; ?>" alt="<?php echo $projectTitle; ?>">
+        </div>
+        <div class="text-ring">
+            <svg viewBox="0 0 100 100">
+                <defs>
+                    <path id="circle-<?php echo $projectId; ?>" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                    <linearGradient id="text-gradient-<?php echo $projectId; ?>" gradientUnits="userSpaceOnUse">
+                        <stop class="text-highlight" offset="0%" stop-color="var(--color-accent)"></stop>
+                        <stop class="text-normal" offset="40%" stop-color="var(--color-text-light)"></stop>
+                        <stop class="text-normal" offset="100%" stop-color="var(--color-text-light)"></stop>
+                    </linearGradient>
+                </defs>
+                <text>
+                    <textPath href="#circle-<?php echo $projectId; ?>" startOffset="0%" fill="url(#text-gradient-<?php echo $projectId; ?>)" text-anchor="start" letter-spacing="2">
+                        <?php echo $circleText; ?>
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<!-- Project Detail -->
+<div class="project-detail" id="project-<?php echo $projectId; ?>-detail">
+    <div class="project-slideshow">
+        <div class="slideshow-container">
+            <?php 
+            // Handle project images
+            $projectImages = $projectImages ?? [$projectImage, $projectImage, $projectImage];
+            $projectImageAlts = $projectImageAlts ?? [
+                "$projectTitle - Main View",
+                "$projectTitle - Secondary View",
+                "$projectTitle - Third View"
+            ];
+            
+            foreach ($projectImages as $index => $img): 
+                $isActive = $index === 0 ? 'active' : '';
+                $alt = $projectImageAlts[$index] ?? "$projectTitle - Image " . ($index + 1);
+            ?>
+            <div class="slide <?php echo $isActive; ?>">
+                <img src="<?php echo $img; ?>" alt="<?php echo $alt; ?>">
+            </div>
+            <?php endforeach; ?>
+            
+            <div class="slideshow-nav">
+                <?php for ($i = 0; $i < count($projectImages); $i++): ?>
+                <div class="slide-dot <?php echo $i === 0 ? 'active' : ''; ?>" data-slide="<?php echo $i; ?>"></div>
+                <?php endfor; ?>
+            </div>
+            
+            <div class="slide-instruction">Scroll to navigate</div>
+            <div class="slide-nav slide-prev">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 19V5M12 19l-7-7M12 19l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="slide-nav slide-next">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5v14M12 5l-7 7M12 5l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="project-content">
+        <h3><?php echo $projectTitle; ?></h3>
+        <div class="project-tags">
+            <?php foreach ($projectTags as $tag): ?>
+            <span><?php echo $tag; ?></span>
+            <?php endforeach; ?>
+        </div>
+        <p class="project-description"><?php echo $projectDescription; ?></p>
+        <div class="project-actions">
+            <?php if (isset($projectLink)): ?>
+            <a href="<?php echo $projectLink; ?>" class="btn-small" target="_blank" rel="noopener">View Project</a>
+            <?php endif; ?>
+            
+            <?php if (isset($projectGithub)): ?>
+            <a href="<?php echo $projectGithub; ?>" class="btn-small btn-outline" target="_blank" rel="noopener">GitHub</a>
+            <?php endif; ?>
+        </div>
+        <button class="close-detail">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!-- /templates/components/timeline-item.html -->
+<!-- 
+  Timeline Item Component
+  
+  Usage:
+  This component accepts the following PHP variables:
+  - $year: The year to display (e.g., "2023")
+  - $dateRange: The date range text (e.g., "2023 - Present")
+  - $title: The title/position (e.g., "Senior Front-End Developer")
+  - $organization: The company or organization name
+  - $location: The location (city/country)
+  - $details: Array of bullet points or a single paragraph for the description
+  - $isEducation: Boolean to indicate if this is an education entry
+  
+  Example PHP implementation:
+  include_once('templates/components/timeline-item.html', [
+    'year' => '2023',
+    'dateRange' => '2023 - Present',
+    'title' => 'Senior Front-End Developer',
+    'organization' => 'Tech Innovations Ltd',
+    'location' => 'London',
+    'details' => [
+      'Lead development of modern, responsive web applications',
+      'Optimize application performance and user experience',
+      'Mentor junior developers and conduct code reviews'
+    ],
+    'isEducation' => false
+  ]);
+-->
+
+<div class="timeline-item" data-year="<?php echo $year; ?>">
+    <div class="timeline-dot"></div>
+    <div class="timeline-date"><?php echo $dateRange; ?></div>
+    <div class="timeline-content">
+        <h3><?php echo $title; ?></h3>
+        <h4><?php echo $organization; ?><?php echo isset($location) ? ", $location" : ''; ?></h4>
+        
+        <?php if (is_array($details)): ?>
+        <ul class="timeline-details">
+            <?php foreach ($details as $detail): ?>
+            <li><?php echo $detail; ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php else: ?>
+        <p><?php echo $details; ?></p>
+        <?php endif; ?>
+        
+        <?php if (isset($achievements) && is_array($achievements) && count($achievements) > 0): ?>
+        <div class="timeline-achievements">
+            <h5>Key Achievements:</h5>
+            <ul>
+                <?php foreach ($achievements as $achievement): ?>
+                <li><?php echo $achievement; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>

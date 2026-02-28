@@ -1,0 +1,193 @@
+/* /css/base.css */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 160px; /* Increased from 120px to provide more space at the top */
+    height: 100%;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    transition: color var(--transition-normal), background-color var(--transition-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    cursor: none;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
+    
+    html {
+      scroll-padding-top: 100px; /* Smaller padding for mobile */
+    }
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-title {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  
+  p {
+    margin-bottom: var(--space-4);
+  }
+  
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+  }
+  
+  a:hover {
+    color: var(--color-text);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  main {
+    min-height: 100vh;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    position: relative;
+    z-index: var(--z-normal);
+  }
+  
+  .section {
+    min-height: 100vh;
+    padding: var(--space-16) var(--space-6);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    overflow: visible;
+    background-color: var(--color-bg);
+    scroll-margin-top: 160px; /* Increased from 100px to match the JavaScript offset */
+  }
+  
+  .section-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-12);
+    text-align: center;
+    position: relative;
+    z-index: var(--z-above);
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: var(--space-12) var(--space-4);
+      scroll-margin-top: 100px; /* Smaller margin for mobile */
+    }
+    
+    .section-title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-8);
+    }
+  }
+  
+  /* Visibility Animations */
+  .timeline-item,
+  .contact-method,
+  .social-link,
+  .timeline-container,
+  .contact-container,
+  .section-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .timeline-item.visible,
+  .contact-method.visible,
+  .social-link.visible,
+  .timeline-container.visible,
+  .contact-container.visible,
+  .section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Staggered animations */
+  .timeline-item:nth-child(1),
+  .contact-method:nth-child(1),
+  .social-link:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  
+  .timeline-item:nth-child(2),
+  .contact-method:nth-child(2),
+  .social-link:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  
+  .timeline-item:nth-child(3),
+  .social-link:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  
+  .timeline-item:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  
+  /* Prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .scroll-indicator {
+      animation: none !important;
+    }
+  }

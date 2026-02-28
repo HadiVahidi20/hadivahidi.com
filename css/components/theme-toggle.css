@@ -1,0 +1,57 @@
+/* /css/components/theme-toggle.css */
+
+.theme-toggle {
+    position: fixed;
+    top: var(--space-6);
+    right: var(--space-6);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: var(--z-nav);
+    transition: border-color var(--transition-normal), transform var(--transition-normal);
+  }
+  
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+    transform: scale(1.1);
+  }
+  
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text);
+    transition: transform var(--transition-normal);
+  }
+  
+  .theme-toggle:hover svg {
+    transform: rotate(30deg);
+  }
+  
+  .dark-mode .sun {
+    display: block;
+  }
+  
+  .dark-mode .moon {
+    display: none;
+  }
+  
+  .light-mode .sun,
+  body:not(.dark-mode) .sun {
+    display: none;
+  }
+  
+  .light-mode .moon,
+  body:not(.dark-mode) .moon {
+    display: block;
+  }

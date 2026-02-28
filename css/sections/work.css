@@ -1,0 +1,80 @@
+/* /css/sections/work.css */
+
+.work {
+  overflow: visible;
+  position: relative;
+  z-index: var(--z-normal);
+}
+
+.work .canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.work #work-particles {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.project-universe {
+  width: 100%;
+  max-width: 1200px;
+  height: 570px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-8);
+  overflow: visible !important; /* Ensure nodes aren't cut off */
+}
+
+#project-canvas {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.project-highlight {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  z-index: 1;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  padding-top: 10px;
+}
+
+/* Loading Animation for Projects */
+.project-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.project-loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(var(--color-accent-rgb), 0.2);
+  border-radius: 50%;
+  border-top-color: var(--color-accent);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .project-universe {
+    height: 600px;
+  }
+}
