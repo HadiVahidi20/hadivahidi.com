@@ -5,8 +5,11 @@ export default function Home() {
     <main className="min-h-screen flex items-center justify-center">
       <div className="text-center space-y-6 px-4">
         <div
-          className="inline-flex items-center justify-center w-14 h-14 rounded-xl text-white font-bold text-xl"
-          style={{ backgroundColor: "var(--accent)" }}
+          className="inline-flex items-center justify-center w-14 h-14 rounded-xl font-bold text-xl"
+          style={{
+            backgroundColor: "var(--accent)",
+            color: "var(--accent-foreground)",
+          }}
         >
           HV
         </div>
@@ -28,8 +31,11 @@ export default function Home() {
         <div className="flex gap-4 justify-center pt-4">
           <Link
             href="/admin/login"
-            className="inline-flex items-center px-6 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "var(--accent)" }}
+            className="inline-flex items-center px-6 py-3 rounded-lg font-medium transition-opacity hover:opacity-90"
+            style={{
+              backgroundColor: "var(--accent)",
+              color: "var(--accent-foreground)",
+            }}
           >
             Admin Panel
           </Link>
