@@ -32,7 +32,7 @@ const FOCUSABLE_SELECTORS = [
  */
 export function useFocusTrap<T extends HTMLElement>(
   active: boolean,
-): RefObject<T> {
+): RefObject<T | null> {
   const containerRef = useRef<T>(null);
 
   useEffect(() => {
