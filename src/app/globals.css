@@ -53,16 +53,13 @@ body {
   outline: none;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling is handled by Lenis on desktop.
+   Touch devices and reduced-motion users get native scroll-behavior: auto. */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

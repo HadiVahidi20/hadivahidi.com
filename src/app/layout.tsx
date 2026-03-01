@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -51,7 +53,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <SmoothScrollProvider>
+          <ScrollProgressIndicator />
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
