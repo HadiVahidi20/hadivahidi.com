@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center">
+      <div className="fixed top-4 right-4">
+        <ThemeToggle />
+      </div>
       <div className="text-center space-y-6 px-4">
         <div
           className="inline-flex items-center justify-center w-14 h-14 rounded-xl text-white font-bold text-xl"
