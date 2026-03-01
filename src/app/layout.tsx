@@ -36,9 +36,28 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Hadi Vahidi",
   },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@hadivahidi",
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || undefined,
   },
 };
 

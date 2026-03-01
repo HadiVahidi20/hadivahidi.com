@@ -26,11 +26,24 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    // TODO: Connect to email API (e.g., Resend, SendGrid)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setStatus("sent");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus("idle"), 3000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   }
 
   return (
@@ -144,18 +157,25 @@ export default function Contact() {
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="w-full sm:w-auto px-8 py-3 rounded-xl text-white font-medium transition-all hover:scale-105 disabled:opacity-50"
-            style={{ backgroundColor: "var(--accent)" }}
-          >
-            {status === "sending"
-              ? "Sending..."
-              : status === "sent"
-                ? "Message Sent!"
-                : "Send Message"}
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="w-full sm:w-auto px-8 py-3 rounded-xl text-white font-medium transition-all hover:scale-105 disabled:opacity-50"
+              style={{ backgroundColor: "var(--accent)" }}
+            >
+              {status === "sending"
+                ? "Sending..."
+                : status === "sent"
+                  ? "Message Sent!"
+                  : "Send Message"}
+            </button>
+            <span aria-live="polite" className="text-sm">
+              {status === "error" && (
+                <span style={{ color: "#ef4444" }}>Failed to send. Please try again.</span>
+              )}
+            </span>
+          </div>
         </motion.form>
       </div>
     </section>

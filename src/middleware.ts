@@ -53,6 +53,20 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
+  // Rate limit contact form: 3 per minute
+  if (pathname === "/api/contact" && request.method === "POST") {
+    const { allowed, remaining } = rateLimit(`contact:${ip}`, 3, 60_000);
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "Too many submissions. Please wait a moment." },
+        { status: 429, headers: { "Retry-After": "60" } },
+      );
+    }
+    const response = NextResponse.next();
+    response.headers.set("X-RateLimit-Remaining", String(remaining));
+    return response;
+  }
+
   // Rate limit API routes: 100 per minute
   if (pathname.startsWith("/api/") && !pathname.startsWith("/api/auth")) {
     const { allowed, remaining } = rateLimit(`api:${ip}`, 100, 60_000);

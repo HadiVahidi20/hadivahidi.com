@@ -144,6 +144,24 @@ export default async function Home() {
         <Contact />
       </main>
       <Footer />
+
+      {/* Structured data — Person */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: formattedProfile?.name || "Hadi Vahidi",
+            jobTitle: formattedProfile?.title || "Front-End Developer",
+            url: process.env.NEXT_PUBLIC_SITE_URL || "https://hadivahidi.com",
+            sameAs: [],
+            description:
+              formattedProfile?.bio ||
+              "Front-End Developer crafting exceptional digital experiences.",
+          }),
+        }}
+      />
     </>
   );
 }
