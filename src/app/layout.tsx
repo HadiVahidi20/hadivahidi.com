@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SkipLink } from "@/components/SkipLink";
+import { AnnouncementProvider } from "@/components/AnnouncementProvider";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -51,7 +53,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <SkipLink />
+        <AnnouncementProvider>{children}</AnnouncementProvider>
       </body>
     </html>
   );
