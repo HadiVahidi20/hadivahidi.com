@@ -30,7 +30,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
 
   const addToast = React.useCallback(
     (toast: Omit<Toast, "id">) => {
-      const id = Math.random().toString(36).slice(2, 9);
+      const id = crypto.randomUUID();
       const duration = toast.duration ?? 5000;
       setToasts((prev) => [...prev, { ...toast, id, duration }]);
       if (duration > 0) {

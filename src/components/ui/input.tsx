@@ -54,12 +54,19 @@ function FieldWrapper({
       )}
       {children}
       {errorMessage && (
-        <p className="text-xs text-red-500" role="alert" aria-live="polite">
+        <p
+          id={`${id}-error`}
+          className="text-xs text-red-500"
+          role="alert"
+          aria-live="polite"
+        >
           {errorMessage}
         </p>
       )}
       {!errorMessage && helperText && (
-        <p className="text-xs text-[var(--text-light)]">{helperText}</p>
+        <p id={`${id}-helper`} className="text-xs text-[var(--text-light)]">
+          {helperText}
+        </p>
       )}
     </div>
   );
