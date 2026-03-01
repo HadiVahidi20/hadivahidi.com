@@ -22,6 +22,7 @@
   --border-color: #e4e4e7;
   --text-rgb: 26, 26, 26;
   --bg-rgb: 248, 249, 250;
+  --glass-opacity: 0.6;
 }
 
 .dark {
@@ -35,6 +36,7 @@
   --border-color: #333333;
   --text-rgb: 245, 245, 245;
   --bg-rgb: 15, 15, 15;
+  --glass-opacity: 0.45;
 }
 
 body {
@@ -77,4 +79,24 @@ html {
 ::selection {
   background: rgba(var(--accent-rgb), 0.2);
   color: var(--text);
+}
+
+/* ── BentoGrid layout ─────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--bento-cols, 4), minmax(0, 1fr));
+  gap: var(--bento-gap, 1rem);
+  padding: var(--bento-padding, 0);
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
